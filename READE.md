@@ -1154,3 +1154,16 @@ FROM sensor_data
 GROUP BY day
 ORDER BY day
 ```
+特性	InfluxDB	MySQL	说明
+数据模型	时序数据	关系型	InfluxDB 专为时间序列优化
+写入性能	极高 (100万+/秒)	中等 (几万/秒)	InfluxDB 批量写入更高效
+查询性能	时间查询快	复杂查询快	各有优势
+存储压缩	高压缩比	标准压缩	时序数据压缩率更高
+JOIN 支持	❌ 不支持	✅ 完全支持	MySQL 适合关系查询
+事务支持	❌ 不支持	✅ ACID 事务	MySQL 适合金融等场景
+UPDATE/DELETE	❌ 不支持	✅ 完全支持	InfluxDB 只能追加写入
+数据过期	✅ 自动清理	手动清理	InfluxDB 内置数据保留策略
+时间函数	✅ 丰富	基础	InfluxDB 时间处理更强
+聚合查询	✅ 优化	✅ 支持	都支持，InfluxDB 时间聚合更快
+学习成本	中等	低	MySQL 更普及
+生态系统	专业化	成熟完整	MySQL 生态更丰富
